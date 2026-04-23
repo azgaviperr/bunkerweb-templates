@@ -30,7 +30,9 @@ your instance stays reachable and protected.
    service resolves from the BunkerWeb container or pod.
 5. **Review the HTTP hardening options** – keep the WebDAV verbs, upload size, rate limits, caching, and
    CRS plugin values or tailor them to your workload.
-6. **Reload BunkerWeb** and verify you can sign in to Nextcloud through the proxy.
+6. **Check the Nextcloud Mail step** – if you use the Nextcloud Mail app, the **HTTP - Mail** step
+   exposes dedicated settings you can adjust to fit your usage.
+7. **Reload BunkerWeb** and verify you can sign in to Nextcloud through the proxy.
 
 ## Customization Tips
 
