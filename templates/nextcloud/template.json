@@ -28,6 +28,8 @@
     "LIMIT_REQ_RATE_2": "8r/s",
     "LIMIT_REQ_URL_3": "/core/preview",
     "LIMIT_REQ_RATE_3": "5r/s",
+    "LIMIT_REQ_URL_4": "/apps/mail",
+    "LIMIT_REQ_RATE_4": "40r/s",
     "USE_CLIENT_CACHE": "yes",
     "SERVE_FILES": "no",
     "USE_GZIP": "yes",
@@ -80,6 +82,11 @@
         "LIMIT_REQ_URL_3",
         "LIMIT_REQ_RATE_3"
       ]
+    },
+    {
+      "title": "HTTP - Mail",
+      "subtitle": "Tune rate limiting for Nextcloud Mail if used.",
+      "settings": ["LIMIT_REQ_URL_4", "LIMIT_REQ_RATE_4"]
     },
     {
       "title": "Performance - Client optimization",
