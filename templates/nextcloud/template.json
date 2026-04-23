@@ -85,7 +85,7 @@
     },
     {
       "title": "HTTP - Mail",
-      "subtitle": "Tune rate limiting for Nextcloud Mail.",
+      "subtitle": "Tune rate limiting for Nextcloud Mail if used.",
       "settings": ["LIMIT_REQ_URL_4", "LIMIT_REQ_RATE_4"]
     },
     {
