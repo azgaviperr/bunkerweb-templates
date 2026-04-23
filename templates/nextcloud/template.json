@@ -28,6 +28,8 @@
     "LIMIT_REQ_RATE_2": "8r/s",
     "LIMIT_REQ_URL_3": "/core/preview",
     "LIMIT_REQ_RATE_3": "5r/s",
+    "LIMIT_REQ_URL_4": "/apps/mail",
+    "LIMIT_REQ_RATE_4": "40r/s",
     "USE_CLIENT_CACHE": "yes",
     "SERVE_FILES": "no",
     "USE_GZIP": "yes",
@@ -35,7 +37,9 @@
     "BAD_BEHAVIOR_STATUS_CODES": "400 401 403 405 444",
     "MODSECURITY_CRS_PLUGINS": "nextcloud-rule-exclusions"
   },
-  "configs": ["modsec/nextcloud_false_positives.conf"],
+  "configs": [
+    "modsec/nextcloud_false_positives.conf"
+  ],
   "steps": [
     {
       "title": "Web service - Front door",
@@ -82,9 +86,21 @@
       ]
     },
     {
+      "title": "HTTP - Mail",
+      "subtitle": "Tune rate limiting for Nextcloud Mail.",
+      "settings": [
+        "LIMIT_REQ_URL_4",
+        "LIMIT_REQ_RATE_4"
+      ]
+    },
+    {
       "title": "Performance - Client optimization",
       "subtitle": "Control caching and compression behaviour.",
-      "settings": ["USE_CLIENT_CACHE", "SERVE_FILES", "USE_GZIP"]
+      "settings": [
+        "USE_CLIENT_CACHE",
+        "SERVE_FILES",
+        "USE_GZIP"
+      ]
     },
     {
       "title": "Security - Headers and CRS exclusions",
@@ -94,7 +110,9 @@
         "BAD_BEHAVIOR_STATUS_CODES",
         "MODSECURITY_CRS_PLUGINS"
       ],
-      "configs": ["modsec/nextcloud_false_positives.conf"]
+      "configs": [
+        "modsec/nextcloud_false_positives.conf"
+      ]
     }
   ]
 }
