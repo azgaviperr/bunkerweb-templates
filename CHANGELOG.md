@@ -5,8 +5,13 @@ manual releases can pull details straight from this file.
 
 ## Unreleased
 
-- [@YouKyi] Edit the Nextcloud template to handle higher rate limits for the Nextcloud Mail app.
+## Templates release v0.4 - 2026-04-24
+
 - [@TheophileDiot] Add Xen Orchestra template with reverse proxy, WebSocket, and rate limiting defaults.
+- [@YouKyi] Edit the Nextcloud template to handle higher rate limits for the Nextcloud Mail app.
+- [@Simonmiz] Add WebSocket reverse-proxy support to the Nextcloud template (`REVERSE_PROXY_WS`) and document the configuration in the template README.
+- [@TheophileDiot] Add `.coderabbit.yaml` with automated pull request review guidelines tailored to template contributions.
+- [@TheophileDiot] Add `CLAUDE.md` with project guidance and development commands for contributors using Claude Code.
 
 ## Templates release v0.3 - 2026-02-25
 
