@@ -46,6 +46,8 @@ your instance stays reachable and protected.
   elsewhere.
 - Adjust `configs/modsec/nextcloud_false_positives.conf` if you must disable the CRS plugin or tailor the allowed
   methods for niche deployments.
+- Set `REVERSE_PROXY_WS` to `"yes"` to enable WebSocket support, which is required by some Nextcloud
+  applications (for example Talk or Collabora).
 
 ## Validation
 
