@@ -58,14 +58,15 @@ This repository packages those JSON definitions alongside their configuration sn
 
 ## Available Templates
 
-| Template                          | Summary                                               | Directory              |
-| --------------------------------- | ----------------------------------------------------- | ---------------------- |
-| [Drupal](templates/drupal/)       | Secure template with CMS-aware defaults               | `templates/drupal/`    |
-| [Jellyfin](templates/jellyfin/)   | Media streaming template with reverse proxy tuning    | `templates/jellyfin/`  |
-| [Nextcloud](templates/nextcloud/) | Secure template with WebDAV-aware defaults            | `templates/nextcloud/` |
-| [NetBird](templates/netbird/)     | Self-hosted template with gRPC and websocket routing  | `templates/netbird/`   |
-| [Tomcat](templates/tomcat/)       | Reverse proxy template with servlet-friendly defaults | `templates/tomcat/`    |
-| [WordPress](templates/wordpress/) | Secure template with essential hardening defaults     | `templates/wordpress/` |
+| Template                                  | Summary                                                          | Directory                  |
+| ----------------------------------------- | ---------------------------------------------------------------- | -------------------------- |
+| [Drupal](templates/drupal/)               | Secure template with CMS-aware defaults                          | `templates/drupal/`        |
+| [Jellyfin](templates/jellyfin/)           | Media streaming template with reverse proxy tuning               | `templates/jellyfin/`      |
+| [Nextcloud](templates/nextcloud/)         | Secure template with WebDAV-aware defaults                       | `templates/nextcloud/`     |
+| [NetBird](templates/netbird/)             | Self-hosted template with gRPC and websocket routing             | `templates/netbird/`       |
+| [Tomcat](templates/tomcat/)               | Reverse proxy template with servlet-friendly defaults            | `templates/tomcat/`        |
+| [Xen Orchestra](templates/xen-orchestra/) | Reverse proxy template with WebSocket and rate limiting defaults | `templates/xen-orchestra/` |
+| [WordPress](templates/wordpress/)         | Secure template with essential hardening defaults                | `templates/wordpress/`     |
 
 ```text
 templates/
