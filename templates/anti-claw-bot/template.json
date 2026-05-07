@@ -1,0 +1,64 @@
+{
+  "id": "anti-claw-bot",
+  "name": "Anti-claw / anti-bot hardening profile",
+  "settings": {
+    "SERVER_NAME": "www.example.com",
+    "AUTO_LETS_ENCRYPT": "yes",
+    "USE_LETS_ENCRYPT_STAGING": "no",
+    "USE_CUSTOM_SSL": "no",
+    "USE_ANTIBOT": "captcha",
+    "USE_DNSBL": "yes",
+    "USE_LIMIT_REQ": "yes",
+    "LIMIT_REQ_URL": "/",
+    "LIMIT_REQ_RATE": "5r/s",
+    "USE_LIMIT_CONN": "yes",
+    "LIMIT_CONN_MAX_HTTP1": "5",
+    "USE_BAD_BEHAVIOR": "yes",
+    "BAD_BEHAVIOR_STATUS_CODES": "400 401 403 404 405 429 444",
+    "BAD_BEHAVIOR_THRESHOLD": "5",
+    "USE_MODSECURITY": "yes",
+    "USE_MODSECURITY_CRS": "yes"
+  },
+  "steps": [
+    {
+      "title": "Web service - Front service",
+      "subtitle": "Set your protected hostname and TLS mode.",
+      "settings": [
+        "SERVER_NAME",
+        "AUTO_LETS_ENCRYPT",
+        "USE_LETS_ENCRYPT_STAGING",
+        "USE_CUSTOM_SSL"
+      ]
+    },
+    {
+      "title": "Security - Human verification",
+      "subtitle": "Challenge suspicious clients with anti-bot protection.",
+      "settings": [
+        "USE_ANTIBOT",
+        "USE_DNSBL"
+      ]
+    },
+    {
+      "title": "Security - Aggressive throttling",
+      "subtitle": "Apply stricter request and connection limits against scrapers.",
+      "settings": [
+        "USE_LIMIT_REQ",
+        "LIMIT_REQ_URL",
+        "LIMIT_REQ_RATE",
+        "USE_LIMIT_CONN",
+        "LIMIT_CONN_MAX_HTTP1"
+      ]
+    },
+    {
+      "title": "Security - Auto-ban and WAF",
+      "subtitle": "Block repeated suspicious behavior and enforce ModSecurity CRS.",
+      "settings": [
+        "USE_BAD_BEHAVIOR",
+        "BAD_BEHAVIOR_STATUS_CODES",
+        "BAD_BEHAVIOR_THRESHOLD",
+        "USE_MODSECURITY",
+        "USE_MODSECURITY_CRS"
+      ]
+    }
+  ]
+}

@@ -28,4 +28,12 @@ Production-ready examples with guided steps and optional CRS tuning.
   - Path: [templates/xen-orchestra/](https://github.com/bunkerity/bunkerweb-templates/tree/main/templates/xen-orchestra/)
   - Focus: WebSocket support, self-signed upstream, JSON-RPC rate limiting, CRS exclusions.
 
+- PrestaShop
+  - Path: [templates/prestashop/](https://github.com/bunkerity/bunkerweb-templates/tree/main/templates/prestashop/)
+  - Focus: Reverse proxy storefront defaults, anti-bot challenge, ModSecurity CRS, rate limits.
+
+- Anti-claw / Anti-bot
+  - Path: [templates/anti-claw-bot/](https://github.com/bunkerity/bunkerweb-templates/tree/main/templates/anti-claw-bot/)
+  - Focus: CAPTCHA anti-bot mode, DNSBL, strict request throttling, aggressive bad-behavior bans.
+
 Tip: Open `template.json` and any `configs/` snippets in each directory for details.

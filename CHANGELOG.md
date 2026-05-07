@@ -5,6 +5,9 @@ manual releases can pull details straight from this file.
 
 ## Unreleased
 
+- [@azgaviperr] Add a PrestaShop template with reverse proxy, anti-bot, ModSecurity CRS, and storefront-safe limits.
+- [@azgaviperr] Add an Anti-claw / Anti-bot template with CAPTCHA challenge mode, DNSBL, strict throttling, and aggressive behavior bans.
+
 ## Templates release v0.4 - 2026-04-24
 
 - [@TheophileDiot] Add Xen Orchestra template with reverse proxy, WebSocket, and rate limiting defaults.

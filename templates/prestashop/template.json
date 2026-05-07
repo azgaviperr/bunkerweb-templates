@@ -1,0 +1,86 @@
+{
+  "id": "prestashop",
+  "name": "PrestaShop secure template with anti-bot and storefront hardening",
+  "settings": {
+    "SERVER_NAME": "shop.example.com",
+    "AUTO_LETS_ENCRYPT": "yes",
+    "USE_LETS_ENCRYPT_STAGING": "no",
+    "USE_CUSTOM_SSL": "no",
+    "USE_REVERSE_PROXY": "yes",
+    "REVERSE_PROXY_URL": "/",
+    "REVERSE_PROXY_HOST": "http://prestashop",
+    "REVERSE_PROXY_WS": "no",
+    "MAX_CLIENT_SIZE": "100m",
+    "ALLOWED_METHODS": "GET|POST|HEAD|OPTIONS",
+    "USE_ANTIBOT": "cookie",
+    "USE_MODSECURITY": "yes",
+    "USE_MODSECURITY_CRS": "yes",
+    "USE_LIMIT_REQ": "yes",
+    "LIMIT_REQ_URL": "/",
+    "LIMIT_REQ_RATE": "20r/s",
+    "USE_LIMIT_CONN": "yes",
+    "LIMIT_CONN_MAX_HTTP1": "15",
+    "USE_DNSBL": "yes",
+    "USE_BAD_BEHAVIOR": "yes",
+    "BAD_BEHAVIOR_STATUS_CODES": "400 401 404 405 429 444",
+    "BAD_BEHAVIOR_THRESHOLD": "10",
+    "USE_GZIP": "yes",
+    "USE_CLIENT_CACHE": "yes"
+  },
+  "steps": [
+    {
+      "title": "Web service - Front service",
+      "subtitle": "Set your shop domain and TLS mode.",
+      "settings": [
+        "SERVER_NAME",
+        "AUTO_LETS_ENCRYPT",
+        "USE_LETS_ENCRYPT_STAGING",
+        "USE_CUSTOM_SSL"
+      ]
+    },
+    {
+      "title": "Web service - Upstream server",
+      "subtitle": "Route traffic to your PrestaShop backend service.",
+      "settings": [
+        "USE_REVERSE_PROXY",
+        "REVERSE_PROXY_HOST",
+        "REVERSE_PROXY_URL",
+        "REVERSE_PROXY_WS"
+      ]
+    },
+    {
+      "title": "Security - Bot and WAF protection",
+      "subtitle": "Enable anti-bot challenge and ModSecurity CRS for storefront traffic.",
+      "settings": [
+        "USE_ANTIBOT",
+        "USE_MODSECURITY",
+        "USE_MODSECURITY_CRS"
+      ]
+    },
+    {
+      "title": "Security - Rate limits and behavior bans",
+      "subtitle": "Apply request/connection throttling and suspicious behavior bans.",
+      "settings": [
+        "USE_LIMIT_REQ",
+        "LIMIT_REQ_URL",
+        "LIMIT_REQ_RATE",
+        "USE_LIMIT_CONN",
+        "LIMIT_CONN_MAX_HTTP1",
+        "USE_DNSBL",
+        "USE_BAD_BEHAVIOR",
+        "BAD_BEHAVIOR_STATUS_CODES",
+        "BAD_BEHAVIOR_THRESHOLD"
+      ]
+    },
+    {
+      "title": "Performance - Upload and cache tuning",
+      "subtitle": "Tune upload size, compression, and browser cache defaults.",
+      "settings": [
+        "MAX_CLIENT_SIZE",
+        "ALLOWED_METHODS",
+        "USE_GZIP",
+        "USE_CLIENT_CACHE"
+      ]
+    }
+  ]
+}
