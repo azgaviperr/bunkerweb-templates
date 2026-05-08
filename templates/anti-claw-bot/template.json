@@ -8,6 +8,9 @@
     "USE_CUSTOM_SSL": "no",
     "USE_ANTIBOT": "captcha",
     "USE_DNSBL": "yes",
+    "USE_BLACKLIST": "yes",
+    "BLACKLIST_COMMUNITY_LISTS": "ip:danmeuk-tor-exit ua:mitchellkrogza-bad-user-agents",
+    "BLACKLIST_USER_AGENT": "x22 {|} mb_ereg_replace file_put_contents",
     "USE_LIMIT_REQ": "yes",
     "LIMIT_REQ_URL": "/",
     "LIMIT_REQ_RATE": "5r/s",
@@ -36,6 +39,15 @@
       "settings": [
         "USE_ANTIBOT",
         "USE_DNSBL"
+      ]
+    },
+    {
+      "title": "Security - Blacklist & agent IDs",
+      "subtitle": "Enable the mitchellkrogza community UA list (replacing the old nginx botblocker) and block PHP injection agent strings.",
+      "settings": [
+        "USE_BLACKLIST",
+        "BLACKLIST_COMMUNITY_LISTS",
+        "BLACKLIST_USER_AGENT"
       ]
     },
     {
