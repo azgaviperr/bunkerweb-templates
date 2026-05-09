@@ -1,0 +1,100 @@
+{
+  "id": "emby",
+  "name": "Emby media server — anti-bot hardening profile",
+  "settings": {
+    "SERVER_NAME": "emby.yourdomain.com",
+    "AUTO_LETS_ENCRYPT": "yes",
+    "USE_LETS_ENCRYPT_STAGING": "no",
+    "USE_CUSTOM_SSL": "no",
+    "USE_ANTIBOT": "no",
+    "USE_DNSBL": "yes",
+    "USE_BLACKLIST": "yes",
+    "BLACKLIST_COMMUNITY_LISTS": "ip:danmeuk-tor-exit ua:mitchellkrogza-bad-user-agents",
+    "BLACKLIST_USER_AGENT": "x22 {|} mb_ereg_replace file_put_contents GPTBot ChatGPT-User OAI-SearchBot ClaudeBot CCBot Diffbot Bytespider Google-Extended meta-externalagent meta-webindexer anthropic-ai CensysInspect RecordedFuture Infrawatch InternetMeasurement Keydrop python-requests python-urllib go-http-client libwww-perl okhttp Java/",
+    "USE_LIMIT_REQ": "yes",
+    "LIMIT_REQ_URL": "/",
+    "LIMIT_REQ_RATE": "20r/s",
+    "USE_LIMIT_CONN": "yes",
+    "LIMIT_CONN_MAX_HTTP1": "20",
+    "USE_BAD_BEHAVIOR": "yes",
+    "BAD_BEHAVIOR_STATUS_CODES": "400 401 403 405 429 444",
+    "BAD_BEHAVIOR_THRESHOLD": "10",
+    "USE_MODSECURITY": "yes",
+    "USE_MODSECURITY_CRS": "yes",
+    "MAX_CLIENT_SIZE": "20m",
+    "USE_CLIENT_CACHE": "yes",
+    "USE_GZIP": "yes",
+    "REVERSE_PROXY_SEND_TIMEOUT": "300s",
+    "REVERSE_PROXY_READ_TIMEOUT": "300s",
+    "REVERSE_PROXY_BUFFERING": "no",
+    "USE_REVERSE_PROXY": "yes",
+    "REVERSE_PROXY_URL": "/",
+    "REVERSE_PROXY_HOST": "http://emby-host:8096",
+    "REVERSE_PROXY_URL_1": "/embywebsocket",
+    "REVERSE_PROXY_HOST_1": "http://emby-host:8096",
+    "REVERSE_PROXY_WS_1": "yes",
+    "CUSTOM_CONF_MODSEC_CRS_emby": "SecRule REQUEST_FILENAME \"/web/config.json\" \"id:1100000,ctl:ruleRemoveById=930130,ctl:ruleRemoveById=949110,nolog\"\nSecRule REQUEST_FILENAME \"@beginsWith /Items/\" \"id:1100001,ctl:ruleRemoveById=949110,nolog\"\nSecRule REQUEST_FILENAME \"@beginsWith /Users/\" \"id:1100002,ctl:ruleRemoveById=949110,nolog\""
+  },
+  "steps": [
+    {
+      "title": "Web service — Front service",
+      "subtitle": "Set your Emby hostname and TLS mode.",
+      "settings": [
+        "SERVER_NAME",
+        "AUTO_LETS_ENCRYPT",
+        "USE_LETS_ENCRYPT_STAGING",
+        "USE_CUSTOM_SSL"
+      ]
+    },
+    {
+      "title": "Security — Blacklist (no captcha)",
+      "subtitle": "Captcha/antibot challenges break Emby media clients — disabled. UA blacklist and DNSBL applied instead.",
+      "settings": [
+        "USE_ANTIBOT",
+        "USE_DNSBL",
+        "USE_BLACKLIST",
+        "BLACKLIST_COMMUNITY_LISTS",
+        "BLACKLIST_USER_AGENT"
+      ]
+    },
+    {
+      "title": "Security — Rate limiting (media-safe)",
+      "subtitle": "20r/s and 20 concurrent connections — safe for media streaming and multiple clients.",
+      "settings": [
+        "USE_LIMIT_REQ",
+        "LIMIT_REQ_URL",
+        "LIMIT_REQ_RATE",
+        "USE_LIMIT_CONN",
+        "LIMIT_CONN_MAX_HTTP1"
+      ]
+    },
+    {
+      "title": "Security — Auto-ban and WAF",
+      "subtitle": "Bad behaviour auto-ban with higher threshold (10) to tolerate range-request 4xx from media clients. 404 excluded to avoid false positives on missing media files.",
+      "settings": [
+        "USE_BAD_BEHAVIOR",
+        "BAD_BEHAVIOR_STATUS_CODES",
+        "BAD_BEHAVIOR_THRESHOLD",
+        "USE_MODSECURITY",
+        "USE_MODSECURITY_CRS",
+        "CUSTOM_CONF_MODSEC_CRS_emby"
+      ]
+    },
+    {
+      "title": "Reverse proxy — Emby backend",
+      "subtitle": "Proxy all traffic + WebSocket to Emby. Replace REVERSE_PROXY_HOST with the actual host:port.",
+      "settings": [
+        "USE_REVERSE_PROXY",
+        "REVERSE_PROXY_URL",
+        "REVERSE_PROXY_HOST",
+        "REVERSE_PROXY_URL_1",
+        "REVERSE_PROXY_HOST_1",
+        "REVERSE_PROXY_WS_1",
+        "REVERSE_PROXY_BUFFERING",
+        "REVERSE_PROXY_SEND_TIMEOUT",
+        "REVERSE_PROXY_READ_TIMEOUT",
+        "MAX_CLIENT_SIZE"
+      ]
+    }
+  ]
+}
