@@ -10,7 +10,7 @@
     "USE_DNSBL": "yes",
     "USE_BLACKLIST": "yes",
     "BLACKLIST_COMMUNITY_LISTS": "ip:danmeuk-tor-exit ua:mitchellkrogza-bad-user-agents",
-    "BLACKLIST_USER_AGENT": "x22 {|} mb_ereg_replace file_put_contents GPTBot ChatGPT-User OAI-SearchBot ClaudeBot CCBot Diffbot Bytespider Google-Extended meta-externalagent meta-webindexer anthropic-ai CensysInspect RecordedFuture Infrawatch InternetMeasurement Keydrop python-requests python-urllib go-http-client libwww-perl okhttp Java/",
+    "BLACKLIST_USER_AGENT": "x22 {|} mb_ereg_replace file_put_contents GPTBot ChatGPT-User OAI-SearchBot ClaudeBot Claude-Web anthropic-ai CCBot Diffbot Bytespider Google-Extended Applebot-Extended PetalBot meta-externalagent meta-webindexer PerplexityBot cohere-ai YouBot AI2Bot DataForSeoBot omgilibot Meltwater peer39_crawler magpie-crawler AwarioSmartBot RecordedFuture Infrawatch InternetMeasurement Keydrop CensysInspect python-requests python-urllib go-http-client libwww-perl okhttp Java/",
     "USE_LIMIT_REQ": "yes",
     "LIMIT_REQ_URL": "/",
     "LIMIT_REQ_RATE": "5r/s",
@@ -43,7 +43,7 @@
     },
     {
       "title": "Security - Blacklist & agent IDs",
-      "subtitle": "Enable the mitchellkrogza community UA list and block PHP injection strings, AI/LLM crawlers (GPTBot, Claude, CCBot...), security scanners (Censys, RecordedFuture...) and generic HTTP clients.",
+      "subtitle": "Community UA blocklist plus declared AI/LLM crawlers (OpenAI, Anthropic, Google, ByteDance, Apple, Meta, Perplexity, Cohere, Common Crawl, Diffbot, Huawei…), security scanners (Censys, RecordedFuture…), undeclared recon bots, and bare HTTP clients.",
       "settings": [
         "USE_BLACKLIST",
         "BLACKLIST_COMMUNITY_LISTS",

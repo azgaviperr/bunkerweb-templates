@@ -1,6 +1,6 @@
 {
   "id": "prestashop",
-  "name": "PrestaShop secure template with anti-bot and storefront hardening",
+  "name": "PrestaShop secure template with anti-bot, AI crawler blocking, and storefront hardening",
   "settings": {
     "SERVER_NAME": "shop.example.com",
     "AUTO_LETS_ENCRYPT": "yes",
@@ -13,6 +13,9 @@
     "MAX_CLIENT_SIZE": "100m",
     "ALLOWED_METHODS": "GET|POST|HEAD|OPTIONS",
     "USE_ANTIBOT": "cookie",
+    "USE_BLACKLIST": "yes",
+    "BLACKLIST_COMMUNITY_LISTS": "ip:danmeuk-tor-exit ua:mitchellkrogza-bad-user-agents",
+    "BLACKLIST_USER_AGENT": "GPTBot ChatGPT-User OAI-SearchBot ClaudeBot Claude-Web anthropic-ai CCBot Diffbot Bytespider Google-Extended Applebot-Extended PetalBot meta-externalagent meta-webindexer PerplexityBot cohere-ai YouBot AI2Bot DataForSeoBot omgilibot Meltwater peer39_crawler magpie-crawler AwarioSmartBot CensysInspect RecordedFuture Infrawatch InternetMeasurement Keydrop",
     "USE_MODSECURITY": "yes",
     "USE_MODSECURITY_CRS": "yes",
     "USE_LIMIT_REQ": "yes",
@@ -22,7 +25,7 @@
     "LIMIT_CONN_MAX_HTTP1": "15",
     "USE_DNSBL": "yes",
     "USE_BAD_BEHAVIOR": "yes",
-    "BAD_BEHAVIOR_STATUS_CODES": "400 401 404 405 429 444",
+    "BAD_BEHAVIOR_STATUS_CODES": "400 401 403 404 405 429 444",
     "BAD_BEHAVIOR_THRESHOLD": "10",
     "USE_GZIP": "yes",
     "USE_CLIENT_CACHE": "yes"
@@ -55,6 +58,15 @@
         "USE_ANTIBOT",
         "USE_MODSECURITY",
         "USE_MODSECURITY_CRS"
+      ]
+    },
+    {
+      "title": "Security - AI crawler and recon bot blocking",
+      "subtitle": "Block declared AI/LLM training crawlers (OpenAI, Anthropic, Google, ByteDance, Apple, Meta, Perplexity, Cohere, Common Crawl, Diffbot, Huawei…) and security scanners. Generic HTTP clients (python-requests, go-http-client…) are intentionally excluded here to avoid breaking payment gateway and shipping API calls.",
+      "settings": [
+        "USE_BLACKLIST",
+        "BLACKLIST_COMMUNITY_LISTS",
+        "BLACKLIST_USER_AGENT"
       ]
     },
     {
